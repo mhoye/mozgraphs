@@ -103,7 +103,12 @@ d3.json("wheel.json", function(error, json) {
   textEnter.append("tspan")
       .attr("x", 0)
       .attr("dy", "1em")
-      .text(function(d) { return "M: " +  d.mentoring + " - GFB: " + d.good_first; });
+      .text(function(d) {
+        if (d.mentoring === undefined && d.good_first === undefined) {
+          return "";
+        }
+        return "M: " +  d.mentoring + " - GFB: " + d.good_first;
+      });
 
   function click(d) {
     path.transition()
@@ -146,16 +151,23 @@ function isParentOf(p, c) {
   return false;
 }
 
+var colourScale = d3.scale.category20b().domain(d3.range(20));
 function colour(d) {
   if (d.children) {
     // There is a maximum of two children!
     var colours = d.children.map(colour),
         a = d3.hsl(colours[0]),
         b = d3.hsl(colours[1]);
+    if (colours.length === 1) {
+      b = a;
+    }
     // L*a*b* might be better here...
     return d3.hsl((a.h + b.h) / 2, a.s * 1.2, a.l / 1.2);
   }
-  return d.colour || "#fff";
+  if (!d.colour) {
+    // d.colour = colourScale(7);
+  }
+  return d.colour || "#bfb";
 }
 
 // Interpolate the scales!
