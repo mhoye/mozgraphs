@@ -42,6 +42,7 @@ p#intro {
 .toggle {
   display: inline-block;
   cursor: pointer;
+  -moz-user-select: none;
   background-color: #fff;
   color: #2A30DC;
   padding: 7px 10px;
