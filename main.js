@@ -46,8 +46,8 @@ var arc = d3.svg.arc()
     .innerRadius(function(d) { return Math.max(0, d.y ? y(d.y) : d.y); })
     .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
 
-d3.json("extended-data.json", function(error, json) {
-  var nodes = partition.nodes({children: json});
+var draw = function (data) {
+  var nodes = partition.nodes({children: data});
 
   var path = vis.selectAll("path").data(nodes);
   path.enter().append("path")
@@ -115,6 +115,10 @@ d3.json("extended-data.json", function(error, json) {
           d3.select(this).style("visibility", isParentOf(d, e) ? null : "hidden");
         });
   }
+};
+
+d3.json("extended-data.json", function(error, json) {
+  draw(json);
 });
 
 d3.selectAll(".toggle").on("click", function () {
