@@ -37,7 +37,28 @@ div.append("p")
 var partition = d3.layout.partition()
     .sort(null)
     .value(function(d) {
-      return 4 + d.resolved + d.mentored + d.good_first + d.mentor_offer;
+      var rv = 4;
+      if (!d3.select("#resolved.active").empty()) {
+        rv += d.resolved;
+      }
+      if (!d3.select("#mentored.active").empty()) {
+        rv += d.mentored;
+      }
+      if (!d3.select("#good_first.active").empty()) {
+        rv += d.good_first;
+      }
+      if (!d3.select("#mentor_offer.active").empty()) {
+        rv += d.mentor_offer;
+      }
+      if (d.name === "Bryan Clark") {
+        console.log(d.name,
+          d3.select("#resolved.active").empty(),
+          d3.select("#mentored.active").empty(),
+          d3.select("#good_first.active").empty(),
+          d3.select("#mentor_offer.active").empty(),
+          rv);
+      }
+      return rv;
     });
 
 var arc = d3.svg.arc()
@@ -46,7 +67,55 @@ var arc = d3.svg.arc()
     .innerRadius(function(d) { return Math.max(0, d.y ? y(d.y) : d.y); })
     .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
 
-var draw = function (data) {
+function click(d) {
+  vis.selectAll("path").transition()
+    .duration(duration)
+    .attrTween("d", arcTween(d));
+
+  // Somewhat of a hack as we rely on arcTween updating the scales.
+  vis.selectAll("text").style("visibility", function(e) {
+        return isParentOf(d, e) ? null : d3.select(this).style("visibility");
+      })
+    .transition()
+      .duration(duration)
+      .attrTween("text-anchor", function(d) {
+        return function() {
+          return x(d.x + d.dx / 2) > Math.PI ? "end" : "start";
+        };
+      })
+      .attrTween("transform", function(d) {
+        var multiline = (d.name || "").length > 1;
+        return function() {
+          var angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
+              rotate = angle + (multiline ? -0.5 : 0);
+          return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
+        };
+      })
+      .style("fill-opacity", function(e) { return isParentOf(d, e) ? 1 : 1e-6; })
+      .each("end", function(e) {
+        d3.select(this).style("visibility", isParentOf(d, e) ? null : "hidden");
+      });
+}
+
+function update() {
+  vis.selectAll("path").transition()
+    .duration(duration)
+    .attr("d", arc);
+
+  vis.selectAll("text").transition()
+    .duration(duration)
+    .attr("text-anchor", function(d) {
+      return x(d.x + d.dx / 2) > Math.PI ? "end" : "start";
+    })
+    .attr("transform", function(d) {
+      var multiline = (d.name || "").length > 1;
+      var angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
+          rotate = angle + (multiline ? -0.5 : 0);
+      return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
+    });
+}
+
+function draw(data) {
   var nodes = partition.nodes({children: data});
 
   var path = vis.selectAll("path").data(nodes);
@@ -85,39 +154,11 @@ var draw = function (data) {
         if (d.resolved) { s += " R: " + d.resolved; }
         return s;
       });
+}
 
-  function click(d) {
-    path.transition()
-      .duration(duration)
-      .attrTween("d", arcTween(d));
-
-    // Somewhat of a hack as we rely on arcTween updating the scales.
-    text.style("visibility", function(e) {
-          return isParentOf(d, e) ? null : d3.select(this).style("visibility");
-        })
-      .transition()
-        .duration(duration)
-        .attrTween("text-anchor", function(d) {
-          return function() {
-            return x(d.x + d.dx / 2) > Math.PI ? "end" : "start";
-          };
-        })
-        .attrTween("transform", function(d) {
-          var multiline = (d.name || "").length > 1;
-          return function() {
-            var angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
-                rotate = angle + (multiline ? -0.5 : 0);
-            return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
-          };
-        })
-        .style("fill-opacity", function(e) { return isParentOf(d, e) ? 1 : 1e-6; })
-        .each("end", function(e) {
-          d3.select(this).style("visibility", isParentOf(d, e) ? null : "hidden");
-        });
-  }
-};
-
+var cachedData;
 d3.json("extended-data.json", function(error, json) {
+  cachedData = json;
   draw(json);
 });
 
@@ -127,6 +168,10 @@ d3.selectAll(".toggle").on("click", function () {
   self.classed("active", function () {
     return !self.classed("active");
   });
+  var nodes = partition.nodes({children: cachedData});
+  vis.selectAll("path").data(nodes);
+  vis.selectAll("text").data(nodes);
+  update();
 });
 
 function isParentOf(p, c) {
