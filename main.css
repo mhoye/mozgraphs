@@ -39,6 +39,11 @@ p#intro {
     margin-right: auto;
 }
 
+#numbers {
+  float: right;
+  margin-right: 30px;
+}
+
 .toggle {
   display: inline-block;
   cursor: pointer;

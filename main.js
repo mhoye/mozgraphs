@@ -113,6 +113,18 @@ function update() {
           rotate = angle + (multiline ? -0.5 : 0);
       return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
     });
+  vis.selectAll("tspan")
+    .text(function(d) {
+      var s = "";
+      if (d.name) { s += d.name + " "; }
+      if (!d3.select("#numbers.active").empty()) {
+        if (d.mentored) { s += " M: " + d.mentored; }
+        if (d.mentor_offer) { s += " O: " + d.mentor_offer; }
+        if (d.good_first) { s += " G: " + d.good_first; }
+        if (d.resolved) { s += " R: " + d.resolved; }
+      }
+      return s;
+    });
 }
 
 function draw(data) {
@@ -144,16 +156,8 @@ function draw(data) {
       })
       .on("click", click);
   textEnter.append("tspan")
-      .attr("x", 0)
-      .text(function(d) {
-        var s = "";
-        if (d.name) { s += d.name + " "; }
-        if (d.mentored) { s += " M: " + d.mentored; }
-        if (d.mentor_offer) { s += " O: " + d.mentor_offer; }
-        if (d.good_first) { s += " G: " + d.good_first; }
-        if (d.resolved) { s += " R: " + d.resolved; }
-        return s;
-      });
+      .attr("x", 0);
+  update();
 }
 
 var cachedData;
