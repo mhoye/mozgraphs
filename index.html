@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>Mentored And Good First Bugs By Org Segment</title>
+<title>The general state of mentorship, by orgchart heirarchy.</title>
 <meta name="description" content="Dataviz">
 <link rel="stylesheet" href="main.css">
 
-<h1>The Wheel Of Karma</h1>
+<h1 style="text-align: center">The Wheel Of Karma</h1>
 <div id="vis"></div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="main.js"></script>
-<h1>Mentored and Good First Bugs, as divided up by org segment.</h1>
-
-
+<div id="subhead">
+    <h2 style="text-align: center">Mentoring by orgchart heirarchy</h2>
+    <p>After each person's name (if the value is non-zero, is:
+    <ul>
+        <li>"M: ##" - Number of bugs (M)entored to completion.</li>
+        <li>"O: ##" - (O)ffers made to mentor bugs.</li>
+        <li>"G: ##" - (G)ood first bug mentored bugs offered, and</li>
+        <li>"R: ##" - Bugs (R)esolved in the last quarter.</li>
+    </ul></p>
 <p>Built with <a href="http://d3js.org">D3.js</a></p>.
-
+</div>
 <script>
   if (top != self) top.location.replace(location);
 </script>

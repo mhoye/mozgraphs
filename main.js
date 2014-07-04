@@ -34,7 +34,7 @@ div.append("p")
 
 var partition = d3.layout.partition()
     .sort(null)
-    .value(function(d) { return 5.8 - d.depth; });
+    .value(function(d) { return 4 + d.resolved + d.mentored;}); // return minval + delta
 
 var arc = d3.svg.arc()
     .startAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
@@ -42,7 +42,7 @@ var arc = d3.svg.arc()
     .innerRadius(function(d) { return Math.max(0, d.y ? y(d.y) : d.y); })
     .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
 
-d3.json("wheel.json", function(error, json) {
+d3.json("extended-data.json", function(error, json) {
   var nodes = partition.nodes({children: json});
 
   var path = vis.selectAll("path").data(nodes);
@@ -72,15 +72,13 @@ d3.json("wheel.json", function(error, json) {
       .on("click", click);
   textEnter.append("tspan")
       .attr("x", 0)
-      .text(function(d) { return d.depth ? d.name : ""; });
-  textEnter.append("tspan")
-      .attr("x", 0)
-      .attr("dy", "1em")
       .text(function(d) {
-        if (d.mentoring === undefined && d.good_first === undefined) {
-          return "";
-        }
-        return "M: " +  d.mentoring + " - GFB: " + d.good_first;
+        s = d.name + " " 
+        if (d.mentored != 0) { s = s + " M: " + d.mentored; }
+        if (d.mentor_offer != 0) { s = s + " O: " + d.mentor_offer; }
+        if (d.good_first != 0) { s = s + " G: " + d.good_first; }
+        if (d.resolved != 0) { s = s + " R: " + d.resolved; }
+        return s;
       });
 
   function click(d) {
@@ -138,7 +136,7 @@ function colour(d) {
     return d3.hsl((a.h + b.h) / 2, a.s * 1.2, a.l / 1.2);
   }
   if (!d.colour) {
-    // d.colour = colourScale(7);
+    d.colour = colourScale(3);
   }
   return d.colour || "#bfb";
 }

@@ -18,15 +18,22 @@ body {
   width: 1200;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
 }
 
 h1 {
-  text-align: center;
   margin: .5em 0;
 }
 
 p#intro {
-  text-align: center;
   margin: 1em 0;
+}
+
+#vis {
+    text-align: center;
+}
+
+#subhead {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
