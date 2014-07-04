@@ -50,14 +50,6 @@ var partition = d3.layout.partition()
       if (!d3.select("#mentor_offer.active").empty()) {
         rv += d.mentor_offer;
       }
-      if (d.name === "Bryan Clark") {
-        console.log(d.name,
-          d3.select("#resolved.active").empty(),
-          d3.select("#mentored.active").empty(),
-          d3.select("#good_first.active").empty(),
-          d3.select("#mentor_offer.active").empty(),
-          rv);
-      }
       return rv;
     });
 
@@ -100,7 +92,10 @@ function click(d) {
 function update() {
   vis.selectAll("path").transition()
     .duration(duration)
-    .attr("d", arc);
+    .attrTween("d", arcTween2)
+    .each("end", function (d) {
+      d.oldData = makeObj(d);
+    });
 
   vis.selectAll("text").transition()
     .duration(duration)
@@ -127,8 +122,16 @@ function update() {
     });
 }
 
-function draw(data) {
+function getNodes(data) {
   var nodes = partition.nodes({children: data});
+  nodes.map(function (d) {
+    d.oldData = d.oldData || makeObj(d);
+  });
+  return nodes;
+}
+
+function draw(data) {
+  var nodes = getNodes(data);
 
   var path = vis.selectAll("path").data(nodes);
   path.enter().append("path")
@@ -172,7 +175,7 @@ d3.selectAll(".toggle").on("click", function () {
   self.classed("active", function () {
     return !self.classed("active");
   });
-  var nodes = partition.nodes({children: cachedData});
+  var nodes = getNodes(cachedData);
   vis.selectAll("path").data(nodes);
   vis.selectAll("text").data(nodes);
   update();
@@ -215,6 +218,17 @@ function arcTween(d) {
       yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius]);
   return function(d) {
     return function(t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); return arc(d); };
+  };
+}
+
+function makeObj(d) {
+  return {"x": d.x, "dx": d.dx, "y": d.y, "dy": d.dy};
+}
+
+function arcTween2(d) {
+  var interpolate = d3.interpolateObject(d.oldData, makeObj(d));
+  return function(t) {
+    return arc(interpolate(t));
   };
 }
 
