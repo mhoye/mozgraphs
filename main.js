@@ -10,6 +10,8 @@ globalstrict:true, nomen:false, newcap:false */
 
 /*global d3:false */
 
+"use strict";
+
 var width = 1200, 
     height = width,
     radius = width / 2,
@@ -34,7 +36,9 @@ div.append("p")
 
 var partition = d3.layout.partition()
     .sort(null)
-    .value(function(d) { return 4 + d.resolved + d.mentored;}); // return minval + delta
+    .value(function(d) {
+      return 4 + d.resolved + d.mentored + d.good_first + d.mentor_offer;
+    });
 
 var arc = d3.svg.arc()
     .startAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
@@ -66,18 +70,19 @@ d3.json("extended-data.json", function(error, json) {
       .attr("transform", function(d) {
         var multiline = (d.name || "").length > 1,
             angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
-            rotate = angle + (multiline ? -.5 : 0);
+            rotate = angle + (multiline ? -0.5 : 0);
         return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
       })
       .on("click", click);
   textEnter.append("tspan")
       .attr("x", 0)
       .text(function(d) {
-        s = d.name + " " 
-        if (d.mentored != 0) { s = s + " M: " + d.mentored; }
-        if (d.mentor_offer != 0) { s = s + " O: " + d.mentor_offer; }
-        if (d.good_first != 0) { s = s + " G: " + d.good_first; }
-        if (d.resolved != 0) { s = s + " R: " + d.resolved; }
+        var s = "";
+        if (d.name) { s += d.name + " "; }
+        if (d.mentored) { s += " M: " + d.mentored; }
+        if (d.mentor_offer) { s += " O: " + d.mentor_offer; }
+        if (d.good_first) { s += " G: " + d.good_first; }
+        if (d.resolved) { s += " R: " + d.resolved; }
         return s;
       });
 
@@ -101,7 +106,7 @@ d3.json("extended-data.json", function(error, json) {
           var multiline = (d.name || "").length > 1;
           return function() {
             var angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
-                rotate = angle + (multiline ? -.5 : 0);
+                rotate = angle + (multiline ? -0.5 : 0);
             return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
           };
         })
@@ -112,8 +117,16 @@ d3.json("extended-data.json", function(error, json) {
   }
 });
 
+d3.selectAll(".toggle").on("click", function () {
+  // alert(this);
+  var self = d3.select(this);
+  self.classed("active", function () {
+    return !self.classed("active");
+  });
+});
+
 function isParentOf(p, c) {
-  if (p === c) return true;
+  if (p === c) { return true; }
   if (p.children) {
     return p.children.some(function(d) {
       return isParentOf(d, c);
@@ -158,5 +171,5 @@ function maxY(d) {
 
 // http://www.w3.org/WAI/ER/WD-AERT/#color-contrast
 function brightness(rgb) {
-  return rgb.r * .299 + rgb.g * .587 + rgb.b * .114;
+  return rgb.r * 0.299 + rgb.g * 0.587 + rgb.b * 0.114;
 }
