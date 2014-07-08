@@ -106,7 +106,9 @@ function update() {
       var multiline = (d.name || "").length > 1;
       var angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
           rotate = angle + (multiline ? -0.5 : 0);
-      return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
+      return "rotate(" + rotate + ")" +
+             "translate(" + (y(d.y) + padding) + ")" +
+             "rotate(" + (angle > 90 ? -180 : 0) + ")";
     });
   vis.selectAll("tspan")
     .text(function(d) {
@@ -163,8 +165,36 @@ function draw(data) {
   update();
 }
 
+function extendData(data) {
+
+  function extendItem(item) {
+    var sums = extendData(item.children || []);
+    item.summed_mentored = sums.summed_mentored + (item.mentored || 0);
+    item.summed_mentor_offer = sums.summed_mentor_offer + (item.mentor_offer || 0);
+    item.summed_good_first = sums.summed_good_first + (item.good_first || 0);
+    item.summed_resolved = sums.summed_resolved + (item.resolved || 0);
+  }
+
+  var sums = {
+    summed_mentored: 0,
+    summed_mentor_offer: 0,
+    summed_good_first: 0,
+    summed_resolved: 0
+  };
+  for (var i = 0; i < data.length; i++) {
+    extendItem(data[i]);
+    sums.summed_mentored += data[i].mentored;
+    sums.summed_mentor_offer += data[i].mentor_offer;
+    sums.summed_good_first += data[i].good_first;
+    sums.summed_resolved += data[i].resolved;
+  };
+
+  return sums;
+}
+
 var cachedData;
 d3.json("extended-data.json", function(error, json) {
+  extendData(json);
   cachedData = json;
   draw(json);
 });
