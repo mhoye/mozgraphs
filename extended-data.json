@@ -1,9 +1,4 @@
-[{
-    "name": "Johnathan Nightingale",
-    "bugmail": "jonath@mozilla.com",
-    "mentored": 0,
-    "resolved": 0,
-    "children": [
+[{ "name": "Johnathan Nightingale", "bugmail": "jonath@mozilla.com", "children": [
     {
         "bugmail": "benjamin@smedbergs.us",
         "children": [
@@ -12,9 +7,9 @@
                 "children": [],
                 "good_first": 2,
                 "mentor_offer": 10,
-                "mentored": 0,
+                "mentored": 1,
                 "name": "Gregory Szorc",
-                "resolved": 12
+                "resolved": 17
             },
             {
                 "bugmail": "georg.fritzsche@googlemail.com",
@@ -23,7 +18,7 @@
                 "mentor_offer": 9,
                 "mentored": 2,
                 "name": "Georg Fritzsche",
-                "resolved": 16
+                "resolved": 18
             },
             {
                 "bugmail": "mhoye@mozilla.com",
@@ -41,7 +36,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "David Major",
-                "resolved": 13
+                "resolved": 16
             },
             {
                 "bugmail": "birunthan@mohanathas.com",
@@ -50,14 +45,14 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Birunthan Mohanathas",
-                "resolved": 19
+                "resolved": 20
             }
         ],
-        "good_first": 1,
-        "mentor_offer": 28,
-        "mentored": 1,
+        "good_first": 4,
+        "mentor_offer": 47,
+        "mentored": 4,
         "name": "Benjamin Smedberg",
-        "resolved": 46
+        "resolved": 153
     },
     {
         "bugmail": "chofmann@gmail.com",
@@ -66,19 +61,19 @@
                 "bugmail": "l10n@mozilla.com",
                 "children": [],
                 "good_first": 2,
-                "mentor_offer": 2,
+                "mentor_offer": 3,
                 "mentored": 0,
                 "name": "Axel Hecht",
-                "resolved": 14
+                "resolved": 17
             },
             {
                 "bugmail": "gandalf@aviary.pl",
                 "children": [],
                 "good_first": 6,
                 "mentor_offer": 6,
-                "mentored": 0,
-                "name": "Zibi Braniecki (Gandalf)",
-                "resolved": 27
+                "mentored": 1,
+                "name": "Zibi Braniecki Gandalf",
+                "resolved": 28
             },
             {
                 "bugmail": "stas@mozilla.com",
@@ -87,7 +82,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Stanis\u0142aw Malolepszy",
-                "resolved": 27
+                "resolved": 28
             },
             {
                 "bugmail": "pascalc@gmail.com",
@@ -123,7 +118,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Jeff Beatty",
-                "resolved": 10
+                "resolved": 12
             },
             {
                 "bugmail": "m@owca.info",
@@ -141,7 +136,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Peiying Mo",
-                "resolved": 1
+                "resolved": 4
             },
             {
                 "bugmail": "francesco.lodolo@gmail.com",
@@ -150,7 +145,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Francesco Lodolo",
-                "resolved": 101
+                "resolved": 113
             },
             {
                 "bugmail": "tchevalier@theochevalier.fr",
@@ -159,14 +154,14 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Theo Chevalier",
-                "resolved": 16
+                "resolved": 19
             }
         ],
-        "good_first": 0,
-        "mentor_offer": 0,
-        "mentored": 0,
+        "good_first": 8,
+        "mentor_offer": 9,
+        "mentored": 1,
         "name": "Chris Hofmann",
-        "resolved": 0
+        "resolved": 258
     },
     {
         "bugmail": "robert.strong.bugs@gmail.com",
@@ -186,7 +181,7 @@
                 "mentor_offer": 1,
                 "mentored": 0,
                 "name": "Brian R. Bondy",
-                "resolved": 10
+                "resolved": 11
             },
             {
                 "bugmail": "tabraldes@mozilla.com",
@@ -215,11 +210,11 @@
                 "resolved": 0
             }
         ],
-        "good_first": 0,
-        "mentor_offer": 0,
+        "good_first": 1,
+        "mentor_offer": 3,
         "mentored": 0,
         "name": "Robert Strong",
-        "resolved": 14
+        "resolved": 33
     },
     {
         "bugmail": "gavin.sharp@gmail.com",
@@ -231,7 +226,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Neil Deakin",
-                "resolved": 12
+                "resolved": 14
             },
             {
                 "bugmail": "dolske@mozilla.com",
@@ -240,10 +235,10 @@
                         "bugmail": "dao@mozilla.com",
                         "children": [],
                         "good_first": 1,
-                        "mentor_offer": 3,
+                        "mentor_offer": 1,
                         "mentored": 2,
                         "name": "Dao Gottwald",
-                        "resolved": 39
+                        "resolved": 42
                     },
                     {
                         "bugmail": "bmcbride@mozilla.com",
@@ -252,22 +247,22 @@
                         "mentor_offer": 3,
                         "mentored": 0,
                         "name": "Blair McBride",
-                        "resolved": 5
+                        "resolved": 7
                     },
                     {
                         "bugmail": "MattN+bmo@mozilla.com",
                         "children": [],
-                        "good_first": 0,
-                        "mentor_offer": 0,
-                        "mentored": 0,
+                        "good_first": 2,
+                        "mentor_offer": 10,
+                        "mentored": 1,
                         "name": "Matthew Noorenberghe",
-                        "resolved": 0
+                        "resolved": 23
                     },
                     {
                         "bugmail": "jaws@mozilla.com",
                         "children": [],
                         "good_first": 2,
-                        "mentor_offer": 10,
+                        "mentor_offer": 9,
                         "mentored": 1,
                         "name": "Jared Wein",
                         "resolved": 33
@@ -284,18 +279,18 @@
                     {
                         "bugmail": "gijskruitbosch+bugs@gmail.com",
                         "children": [],
-                        "good_first": 0,
-                        "mentor_offer": 0,
-                        "mentored": 0,
+                        "good_first": 2,
+                        "mentor_offer": 6,
+                        "mentored": 1,
                         "name": "Gijs Kruitbosch",
-                        "resolved": 0
+                        "resolved": 89
                     }
                 ],
-                "good_first": 0,
-                "mentor_offer": 0,
-                "mentored": 0,
+                "good_first": 7,
+                "mentor_offer": 29,
+                "mentored": 5,
                 "name": "Justin Dolske",
-                "resolved": 5
+                "resolved": 224
             },
             {
                 "bugmail": "adw@mozilla.com ",
@@ -304,7 +299,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Drew Willcoxon",
-                "resolved": 27
+                "resolved": 28
             },
             {
                 "bugmail": "felipc@gmail.com",
@@ -313,7 +308,7 @@
                 "mentor_offer": 2,
                 "mentored": 0,
                 "name": "Felipe Gomes",
-                "resolved": 26
+                "resolved": 27
             },
             {
                 "bugmail": "mhammond@mozilla.com",
@@ -334,16 +329,16 @@
                         "mentor_offer": 0,
                         "mentored": 0,
                         "name": "Asaf Romano",
-                        "resolved": 25
+                        "resolved": 26
                     },
                     {
                         "bugmail": "mak77@bonardo.net",
                         "children": [],
                         "good_first": 3,
-                        "mentor_offer": 14,
+                        "mentor_offer": 13,
                         "mentored": 1,
                         "name": "Marco Bonardo",
-                        "resolved": 11
+                        "resolved": 13
                     },
                     {
                         "bugmail": "smacleod@mozilla.com",
@@ -352,14 +347,14 @@
                         "mentor_offer": 5,
                         "mentored": 0,
                         "name": "Steven MacLeod",
-                        "resolved": 4
+                        "resolved": 7
                     }
                 ],
-                "good_first": 2,
-                "mentor_offer": 4,
-                "mentored": 0,
+                "good_first": 7,
+                "mentor_offer": 22,
+                "mentored": 1,
                 "name": "Tim Taubert",
-                "resolved": 45
+                "resolved": 95
             },
             {
                 "bugmail": "florian@queze.net",
@@ -368,16 +363,16 @@
                 "mentor_offer": 1,
                 "mentored": 0,
                 "name": "Florian Qu\u00e8ze",
-                "resolved": 34
+                "resolved": 36
             },
             {
                 "bugmail": "paolo.mozmail@amadzone.org",
                 "children": [],
                 "good_first": 1,
-                "mentor_offer": 2,
+                "mentor_offer": 3,
                 "mentored": 0,
                 "name": "Paolo Amadini",
-                "resolved": 23
+                "resolved": 27
             },
             {
                 "children": [],
@@ -402,14 +397,14 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Bernardo Rittmeyer",
-                "resolved": 4
+                "resolved": 6
             }
         ],
-        "good_first": 1,
-        "mentor_offer": 2,
-        "mentored": 0,
+        "good_first": 17,
+        "mentor_offer": 60,
+        "mentored": 6,
         "name": "Gavin Sharp",
-        "resolved": 8
+        "resolved": 495
     },
     {
         "bugmail": "mark.finkle@gmail.com",
@@ -418,8 +413,8 @@
                 "bugmail": "margaret.leibovic@gmail.com",
                 "children": [],
                 "good_first": 2,
-                "mentor_offer": 41,
-                "mentored": 0,
+                "mentor_offer": 40,
+                "mentored": 1,
                 "name": "Margaret Leibovic",
                 "resolved": 61
             },
@@ -427,28 +422,28 @@
                 "bugmail": "wjohnston@mozilla.com",
                 "children": [],
                 "good_first": 0,
-                "mentor_offer": 43,
+                "mentor_offer": 44,
                 "mentored": 1,
                 "name": "Wesley Johnston",
-                "resolved": 35
+                "resolved": 37
             },
             {
                 "bugmail": "rnewman@mozilla.com",
                 "children": [],
-                "good_first": 23,
-                "mentor_offer": 45,
+                "good_first": 22,
+                "mentor_offer": 46,
                 "mentored": 1,
                 "name": "Richard Newman",
-                "resolved": 39
+                "resolved": 45
             },
             {
                 "bugmail": "bnicholson@mozilla.com",
                 "children": [],
                 "good_first": 0,
-                "mentor_offer": 12,
+                "mentor_offer": 8,
                 "mentored": 1,
                 "name": "Brian Nicholson",
-                "resolved": 11
+                "resolved": 13
             },
             {
                 "bugmail": "liuche@mozilla.com",
@@ -457,34 +452,34 @@
                 "mentor_offer": 6,
                 "mentored": 0,
                 "name": "Chenxia Liu",
-                "resolved": 16
+                "resolved": 19
             },
             {
                 "bugmail": "lucasr.at.mozilla@gmail.com",
                 "children": [],
                 "good_first": 1,
-                "mentor_offer": 16,
+                "mentor_offer": 15,
                 "mentored": 4,
                 "name": "Lucas  Rocha",
-                "resolved": 35
+                "resolved": 46
             },
             {
                 "bugmail": "nalexander@mozilla.com",
                 "children": [],
                 "good_first": 2,
-                "mentor_offer": 11,
-                "mentored": 0,
+                "mentor_offer": 10,
+                "mentored": 1,
                 "name": "Nicholas Alexander",
-                "resolved": 45
+                "resolved": 48
             },
             {
                 "bugmail": "michael.l.comella@gmail.com",
                 "children": [],
                 "good_first": 1,
                 "mentor_offer": 23,
-                "mentored": 2,
+                "mentored": 3,
                 "name": "Michael Comella",
-                "resolved": 28
+                "resolved": 29
             },
             {
                 "bugmail": "ckitching@mozilla.com",
@@ -502,14 +497,14 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Eric Edens",
-                "resolved": 2
+                "resolved": 4
             }
         ],
-        "good_first": 0,
-        "mentor_offer": 3,
-        "mentored": 0,
+        "good_first": 28,
+        "mentor_offer": 195,
+        "mentored": 12,
         "name": "Mark Finkle",
-        "resolved": 20
+        "resolved": 324
     },
     {
         "bugmail": "madhava@mozilla.com",
@@ -521,7 +516,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Jennifer Morrow (aka \"Boriss\")",
-                "resolved": 6
+                "resolved": 8
             },
             {
                 "bugmail": "ibarlow@mozilla.com",
@@ -549,7 +544,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Ian Barlow ",
-                "resolved": 0
+                "resolved": 1
             },
             {
                 "bugmail": "bwinton@mozilla.com",
@@ -558,7 +553,7 @@
                 "mentor_offer": 1,
                 "mentored": 0,
                 "name": "Blake Winton \ud83d\udeb2",
-                "resolved": 14
+                "resolved": 19
             },
             {
                 "bugmail": "zfang@mozilla.com",
@@ -567,7 +562,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Zhenshuo Fang",
-                "resolved": 11
+                "resolved": 12
             },
             {
                 "bugmail": "mmaslaney@mozilla.com",
@@ -576,7 +571,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Michael Maslaney",
-                "resolved": 9
+                "resolved": 10
             },
             {
                 "bugmail": "dhenein@mozilla.com",
@@ -594,7 +589,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Sevaan Franks",
-                "resolved": 9
+                "resolved": 13
             },
             {
                 "bugmail": "philipp@mozilla.com",
@@ -603,7 +598,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Philipp Sackl",
-                "resolved": 8
+                "resolved": 9
             },
             {
                 "bugmail": "ddemerson@mozilla.com",
@@ -625,10 +620,10 @@
             }
         ],
         "good_first": 0,
-        "mentor_offer": 0,
+        "mentor_offer": 1,
         "mentored": 0,
         "name": "Madhava Enros",
-        "resolved": 0
+        "resolved": 73
     },
     {
         "bugmail": "edilee@mozilla.com",
@@ -672,7 +667,7 @@
         "mentor_offer": 0,
         "mentored": 0,
         "name": "Ed Lee \ud83d\uddfb \u26c4 \ud83c\udfbf \ud83d\udc2e",
-        "resolved": 13
+        "resolved": 27
     },
     {
         "bugmail": "dcamp@mozilla.com",
@@ -685,7 +680,7 @@
                         "children": [],
                         "good_first": 0,
                         "mentor_offer": 16,
-                        "mentored": 0,
+                        "mentored": 1,
                         "name": "Mihai Sucan",
                         "resolved": 10
                     },
@@ -702,10 +697,10 @@
                         "bugmail": "nfitzgerald@mozilla.com",
                         "children": [],
                         "good_first": 1,
-                        "mentor_offer": 11,
-                        "mentored": 0,
+                        "mentor_offer": 10,
+                        "mentored": 1,
                         "name": "Nick Fitzgerald",
-                        "resolved": 15
+                        "resolved": 21
                     },
                     {
                         "bugmail": "past@mozilla.com",
@@ -714,7 +709,7 @@
                         "mentor_offer": 2,
                         "mentored": 0,
                         "name": "Panagiotis Astithas",
-                        "resolved": 11
+                        "resolved": 17
                     },
                     {
                         "bugmail": "vporof@mozilla.com",
@@ -723,7 +718,7 @@
                         "mentor_offer": 8,
                         "mentored": 0,
                         "name": "Victor Porof",
-                        "resolved": 53
+                        "resolved": 61
                     },
                     {
                         "bugmail": "jjurovych@mozilla.com",
@@ -735,11 +730,11 @@
                         "resolved": 0
                     }
                 ],
-                "good_first": 0,
-                "mentor_offer": 3,
-                "mentored": 0,
+                "good_first": 2,
+                "mentor_offer": 39,
+                "mentored": 2,
                 "name": "Rob Campbell",
-                "resolved": 2
+                "resolved": 118
             },
             {
                 "bugmail": "dtownsend+bugmail@oxymoronical.com",
@@ -760,7 +755,7 @@
                         "mentor_offer": 1,
                         "mentored": 0,
                         "name": "Eddy Jean-Paul Bruel",
-                        "resolved": 4
+                        "resolved": 5
                     },
                     {
                         "children": [],
@@ -786,16 +781,16 @@
                         "mentor_offer": 0,
                         "mentored": 0,
                         "name": "Erik Vold",
-                        "resolved": 34
+                        "resolved": 41
                     },
                     {
                         "bugmail": "jsantell@mozilla.com",
                         "children": [],
                         "good_first": 1,
-                        "mentor_offer": 15,
+                        "mentor_offer": 12,
                         "mentored": 3,
                         "name": "Jordan Santell",
-                        "resolved": 42
+                        "resolved": 47
                     },
                     {
                         "children": [],
@@ -806,11 +801,11 @@
                         "resolved": 0
                     }
                 ],
-                "good_first": 0,
-                "mentor_offer": 0,
-                "mentored": 0,
+                "good_first": 1,
+                "mentor_offer": 13,
+                "mentored": 3,
                 "name": "Dave Townsend",
-                "resolved": 0
+                "resolved": 117
             },
             {
                 "bugmail": "jimb@mozilla.com",
@@ -819,7 +814,7 @@
                 "mentor_offer": 0,
                 "mentored": 0,
                 "name": "Jim Blandy",
-                "resolved": 10
+                "resolved": 15
             },
             {
                 "bugmail": "jwalker@mozilla.com",
@@ -834,7 +829,7 @@
                                 "mentor_offer": 1,
                                 "mentored": 0,
                                 "name": "Alexandre Poirot",
-                                "resolved": 43
+                                "resolved": 51
                             },
                             {
                                 "bugmail": "jryans@gmail.com",
@@ -843,23 +838,23 @@
                                 "mentor_offer": 3,
                                 "mentored": 0,
                                 "name": "J. Ryan Stinnett",
-                                "resolved": 24
+                                "resolved": 26
                             },
                             {
                                 "bugmail": "janx@linux.com",
                                 "children": [],
                                 "good_first": 0,
-                                "mentor_offer": 2,
+                                "mentor_offer": 1,
                                 "mentored": 0,
                                 "name": "Jan Keromnes",
-                                "resolved": 10
+                                "resolved": 11
                             }
                         ],
-                        "good_first": 0,
-                        "mentor_offer": 2,
+                        "good_first": 4,
+                        "mentor_offer": 7,
                         "mentored": 0,
                         "name": "Paul Rouget",
-                        "resolved": 27
+                        "resolved": 115
                     },
                     {
                         "bugmail": "fayearthur@gmail.com",
@@ -877,25 +872,25 @@
                         "mentor_offer": 2,
                         "mentored": 0,
                         "name": "Mike Ratcliffe",
-                        "resolved": 13
+                        "resolved": 14
                     },
                     {
                         "bugmail": "bgrinstead@mozilla.com",
                         "children": [],
                         "good_first": 0,
-                        "mentor_offer": 6,
+                        "mentor_offer": 7,
                         "mentored": 0,
                         "name": "Brian Grinstead",
-                        "resolved": 38
+                        "resolved": 43
                     },
                     {
                         "bugmail": "pbrosset@mozilla.com",
                         "children": [],
-                        "good_first": 2,
-                        "mentor_offer": 5,
+                        "good_first": 3,
+                        "mentor_offer": 8,
                         "mentored": 0,
                         "name": "Patrick Brosset",
-                        "resolved": 22
+                        "resolved": 25
                     },
                     {
                         "bugmail": "gabriel.luong@gmail.com",
@@ -904,14 +899,14 @@
                         "mentor_offer": 0,
                         "mentored": 0,
                         "name": "Gabriel Luong",
-                        "resolved": 8
+                        "resolved": 11
                     }
                 ],
-                "good_first": 4,
-                "mentor_offer": 5,
-                "mentored": 0,
+                "good_first": 13,
+                "mentor_offer": 30,
+                "mentored": 1,
                 "name": "Joe Walker",
-                "resolved": 26
+                "resolved": 258
             },
             {
                 "bugmail": "odvarko@gmail.com",
@@ -949,11 +944,11 @@
                 "resolved": 0
             }
         ],
-        "good_first": 0,
-        "mentor_offer": 0,
-        "mentored": 0,
+        "good_first": 16,
+        "mentor_offer": 82,
+        "mentored": 6,
         "name": "Dave Camp",
-        "resolved": 1
+        "resolved": 509
     },
     {
         "bugmail": "krudnitski@mozilla.com",
@@ -1000,8 +995,6 @@
         "mentor_offer": 0,
         "mentored": 0,
         "name": "Chad Weiner",
-        "resolved": 0
-    }]
-
-}
-]
+        "resolved": 5
+    }
+]}]
