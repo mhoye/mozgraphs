@@ -9,6 +9,7 @@ import json
 import getpass
 import urllib
 
+
 # WARNING: If you use a non-ldaps: URL, you should add a call
 # to conn.start_tls_s().
 SERVER = "ldaps://addressbook.mozilla.com/"
@@ -17,7 +18,7 @@ BASE_DN = "o=com,dc=mozilla" # Mozilla Corporation people (and 1/2 messaging)
 # BASE_DN = "o=org,dc=mozilla" # Mozilla Foundation people
 # BASE_DN = "o=net,dc=mozilla" # Community people (and 1/2 messaging)
 
-BOSS = "mail=jnightingale@mozilla.com,o=com,dc=mozilla"
+LIKE_A_BOSS = "mail=jnightingale@mozilla.com,o=com,dc=mozilla"
 LDAP_ATTRS = ["cn", "email", "bugzillaEmail"]
 basedir = os.path.dirname(os.path.realpath(__file__))
 
@@ -42,7 +43,7 @@ def openConnection():
     print("Please be patient, this can take some time.\n")
     return conn
 
-def getChildren(conn, identifier):
+def getSubordinates(conn, identifier):
 	f = "(manager=" + identifier +")"
 	children = conn.search_s(base=BASE_DN, scope=ldap.SCOPE_SUBTREE, filterstr=f, attrlist=LDAP_ATTRS)
 	l= list()
@@ -58,7 +59,7 @@ def getChildren(conn, identifier):
 		d['resolved'] = 0
 		d['mentor_offer'] = 0
 		d['good_first'] = 0
-		if 'bugmail' in d:  # rewrite this stuff as iterators, this is seriously some onsense
+		if 'bugmail' in d:  # rewrite this stuff as iterators, this is seriously some nonsense
 			d['mentored'] += getNumbers(MENTORED_URL, urllib.quote(str(d['bugmail'])))
 			d['resolved'] += getNumbers(RESOLVED_URL, urllib.quote(str(d['bugmail'])))
 			d['mentor_offer'] += getNumbers(MENTORING_OFFERED, urllib.quote(str(d['bugmail'])))
@@ -68,7 +69,7 @@ def getChildren(conn, identifier):
 			d['resolved'] += getNumbers(RESOLVED_URL, urllib.quote(str(d['email'])))
 			d['mentor_offer'] += getNumbers(MENTORING_OFFERED, urllib.quote(str(d['bugmail'])))
 			d['good_first'] += getNumbers(GOOD_FIRST_BUG_OFFERED, urllib.quote(str(d['bugmail'])))
-		d['children'] = getChildren(conn, dn)
+		d['children'] = getSubordinates(conn, dn)
 		l.append(d)	
 	return l
 		
@@ -95,7 +96,7 @@ def cleanup(conn):
     conn.unbind_s()
 
 conn = openConnection()
-output = getChildren(conn,BOSS)
+output = getSubordinates(conn,LIKE_A_BOSS)
 #print (output)
 aggregateNumbers(output)
 print "[{ \"name\": \"Johnathan Nightingale\", \"bugmail\": \"jonath@mozilla.com\", \"children\": "
